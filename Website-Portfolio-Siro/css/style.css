@@ -609,6 +609,35 @@ button {
   background: rgba(8, 8, 7, 0.0);
 }
 
+/* Click-to-pause flash indicator */
+.work-item-flash {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 4;
+}
+.work-item-flash svg {
+  width: 56px;
+  height: 56px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 50%;
+  padding: 14px;
+  color: #fff;
+}
+.work-item-media.is-paused .work-item-flash {
+  animation: flash-in-out 0.7s ease forwards;
+}
+@keyframes flash-in-out {
+  0%   { opacity: 0; transform: scale(0.8); }
+  20%  { opacity: 1; transform: scale(1); }
+  70%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.05); }
+}
+
 /* Info panel */
 .work-item-info {
   display: flex;
@@ -751,7 +780,7 @@ button {
 .hobby-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(18, 56px);
+  grid-template-rows: repeat(13, 56px);
   gap: 6px;
 }
 

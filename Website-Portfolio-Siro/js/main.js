@@ -324,6 +324,35 @@
   });
 
   /* ----------------------------------------------------------
+     CLICK-TO-PAUSE on work-item videos
+     ---------------------------------------------------------- */
+  const pauseSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`;
+  const playSVG  = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5,3 19,12 5,21"/></svg>`;
+
+  document.querySelectorAll('.work-item-media').forEach(media => {
+    const video = media.querySelector('video');
+    if (!video) return;
+
+    const flash = document.createElement('div');
+    flash.className = 'work-item-flash';
+    flash.setAttribute('aria-hidden', 'true');
+    media.appendChild(flash);
+
+    media.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        flash.innerHTML = playSVG;
+      } else {
+        video.pause();
+        flash.innerHTML = pauseSVG;
+      }
+      media.classList.remove('is-paused');
+      void media.offsetWidth; // force reflow to restart animation
+      media.classList.add('is-paused');
+    });
+  });
+
+  /* ----------------------------------------------------------
      MARQUEE — pause on hover (accessibility)
      ---------------------------------------------------------- */
   document.querySelectorAll('.marquee-wrap').forEach(wrap => {
