@@ -683,6 +683,17 @@ button {
   line-height: 1.78;
   color: var(--text-mid);
 }
+.text-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.text-link:hover {
+  opacity: 0.6;
+}
 
 /* Sound toggle button */
 .work-item-sound {
