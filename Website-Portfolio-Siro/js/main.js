@@ -32,7 +32,7 @@
     })();
 
     // Hover states
-    const hoverEls = document.querySelectorAll('a, button, .work-item, .hobby-photo, .work-item-cta');
+    const hoverEls = document.querySelectorAll('a, button, .work-item, .hobby-photo, .work-item-cta, .work-item-sound');
     hoverEls.forEach(el => {
       el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
       el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
@@ -296,6 +296,32 @@
     { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
       scrollTrigger: { trigger: '.contact-bottom', start: 'top 88%' } }
   );
+
+  /* ----------------------------------------------------------
+     SOUND TOGGLE on work-item videos
+     ---------------------------------------------------------- */
+  document.querySelectorAll('.work-item-sound').forEach(btn => {
+    const video = btn.closest('.work-item-media').querySelector('video');
+    if (!video) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const willUnmute = video.muted;
+      if (willUnmute) {
+        document.querySelectorAll('.work-item-sound').forEach(other => {
+          const otherVideo = other.closest('.work-item-media').querySelector('video');
+          if (otherVideo && otherVideo !== video) {
+            otherVideo.muted = true;
+            other.classList.add('is-muted');
+            other.setAttribute('aria-pressed', 'true');
+          }
+        });
+      }
+      video.muted = !video.muted;
+      btn.classList.toggle('is-muted', video.muted);
+      btn.setAttribute('aria-pressed', String(video.muted));
+    });
+  });
 
   /* ----------------------------------------------------------
      MARQUEE — pause on hover (accessibility)
