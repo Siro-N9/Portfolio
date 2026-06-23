@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Siro — Visual Creator based in Zürich. Commercial video production, photography & creative direction.">
+  <meta property="og:title" content="Siro — Visual Creator">
+  <meta property="og:description" content="Commercial video production, photography & creative direction. Based in Zürich.">
+  <meta property="og:type" content="website">
+  <title>Siro — Visual Creator</title>
+
+  <!-- Preconnect for font performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!--
+    Typography:
+    · Cormorant Garamond — razor-thin editorial serif for headlines
+    · Syne              — bold geometric sans for UI + labels
+    · DM Mono           — monospaced for metadata + numbers
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GSAP loaded with defer — main.js also deferred, so execution order is preserved -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body class="is-loading">
+
+  <!-- ============================================================
+       CUSTOM CURSOR
+       ============================================================ -->
+  <div class="cursor-dot"  id="cursorDot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+
+  <!-- ============================================================
+       PAGE LOADER
+       ============================================================ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-word">
+      <span class="char">S</span><span class="char">I</span><span class="char">R</span><span class="char">O</span>
+    </div>
+    <div class="loader-line"></div>
+  </div>
+
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Siro — back to top">SIRO</a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#hobby">Hobby</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <video
+      class="hero-bg"
+      autoplay muted loop playsinline
+      aria-hidden="true"
+      poster="assets/Image/Work/4A99DC4A-3351-4C50-B8A6-2AC4AD948C90_1_105_c.jpeg"
+    >
+      <source src="assets/Videos/Work/Bewerbungsvideo-Mediamatiker-Thömus-Siro-Nünlist1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Mediamatiker EFZ &mdash; Zürich, CH</p>
+      <h1 class="hero-title" aria-label="SIRO">
+        <span class="char" aria-hidden="true">S</span><span
+        class="char" aria-hidden="true">I</span><span
+        class="char" aria-hidden="true">R</span><span
+        class="char" aria-hidden="true">O</span>
+      </h1>
+      <div class="hero-footer">
+        <p class="hero-tagline">Film &nbsp;&middot;&nbsp; Photography &nbsp;&middot;&nbsp; Design</p>
+        
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <span class="hero-scroll-label">Scroll</span>
+      <div class="hero-scroll-track">
+        <div class="hero-scroll-thumb"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MARQUEE — Skills ticker
+       ============================================================ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track marquee-track--fwd">
+      <span class="marquee-item">Commercial Production <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Photography <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Creative Direction <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Visual Storytelling <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Motion Picture <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Brand Identity <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Zürich, Switzerland <span class="marquee-sep">&middot;</span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Commercial Production <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Photography <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Creative Direction <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Visual Storytelling <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Motion Picture <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Brand Identity <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Zürich, Switzerland <span class="marquee-sep">&middot;</span></span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section class="about" id="about">
+    <div class="about-left">
+      <div class="about-label">About</div>
+      <p class="about-statement">
+        Crafting stories<br>
+        through <em>motion</em><br>
+        and light.
+      </p>
+    </div>
+    <div class="about-right">
+      <p class="about-bio">
+        Ich bin Siro Nünlist und habe im Sommer 2026 meine Lehre als Mediamatiker EFZ bei Sunrise 
+        erfolgreich abgeschlossen. Während meiner Ausbildung konnte ich vielseitige praktische 
+        Erfahrungen sammeln, insbesondere in der Eventfotografie und Videografie sowie in der 
+        Bearbeitung von Medien. 
+      </p>
+      <p class="about-bio">
+        Zu meinen Aufgaben gehörte zudem die Gestaltung von Grafiken, Präsentationen 
+        nach CI/CD sowie die Umsetzung von Bannern und Promotionen. Ich verfüge über 
+        sehr gute Kenntnisse in der Adobe Creative Cloud sowie in Microsoft 365. 
+        Ich arbeite kreativ, strukturiert und zuverlässig und schätze die 
+        Zusammenarbeit im Team. In Zukunft möchte ich mich im Bereich Mediamatik 
+        weiterentwickeln und meine Fähigkeiten kontinuierlich ausbauen.
+      </p>
+      <div class="about-stats">
+        <div class="stat-block">
+          <div class="stat-num">19</div>
+          <div class="stat-label">Years Old</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">Lehre</div>
+          <div class="stat-label">Sunrise GmbH</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">CH</div>
+          <div class="stat-label">Based in Zürich</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WORK
+       ============================================================ -->
+  <section class="work" id="work" aria-label="Selected Work">
+    <div class="section-header">
+      <span class="section-num">001</span>
+      <h2 class="section-title">Work</h2>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- 01 — Sunrise Real Challengers -->
+      <article class="work-item">
+        <div class="work-item-inner">
+          <div class="work-item-media">
+            <video autoplay muted loop playsinline aria-hidden="true"
+              poster="assets/Image/Work/8B337A1D-1DF8-4B88-9991-352A14110715_1_105_c.jpeg">
+              <source src="assets/Videos/Work/SUNRISE_REAL_CHALLENGERS_02_CARLA_V2.MP4" type="video/mp4">
+            </video>
+            <div class="work-item-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="work-item-info">
+            <div>
+              <div class="work-item-num">01</div>
+              <h3 class="work-item-title">Real<br>Challengers</h3>
+              <p class="work-item-cat">Sunrise &nbsp;&middot;&nbsp; Career Page</p>
+            </div>
+            <div>
+              <p class="work-item-desc">
+                Eine mutige, charakterorientierte Kampagnenfilmreihe für Sunrise – sie erzählt die wahren Geschichten 
+                von Menschen, die sich Herausforderungen stellen und sich weigern, stillzustehen. Gedreht vor Ort
+                mit einem kompletten Produktionsteam. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 — Sunrise NFON Statements -->
+      <article class="work-item">
+        <div class="work-item-inner">
+          <div class="work-item-media">
+            <video autoplay muted loop playsinline aria-hidden="true"
+              poster="assets/Image/Work/87D09427-E93D-450D-9960-6BB072649E5C_1_105_c.jpeg">
+              <source src="assets/Videos/Work/sunrise-business-nfon-video-statement2-1920x1080.MP4" type="video/mp4">
+            </video>
+            <div class="work-item-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="work-item-info">
+            <div>
+              <div class="work-item-num">02</div>
+              <h3 class="work-item-title">Sunrise<br>Business</h3>
+              <p class="work-item-cat">NFON &nbsp;&middot;&nbsp; Statement Films</p>
+            </div>
+            <div>
+              <p class="work-item-desc">
+                Eine Reihe von Video-Statements für Sunrise Business × NFON – klar, direkt und 
+                wirkungsvoll. Im Studio produziert mit präziser Beleuchtung und professioneller 
+                Sony-Ausrüstung, Lieferung in drei Formaten. 
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 — Product Photography -->
+      <article class="work-item">
+        <div class="work-item-inner">
+          <div class="work-item-media">
+            <video autoplay muted loop playsinline aria-hidden="true"
+              poster="assets/Image/Work/87D09427-E93D-450D-9960-6BB072649E5C_1_105_c.jpeg">
+              <source src="assets/Videos/Freetime/Sequenz 01.mp4" type="video/mp4">
+            </video>
+            <div class="work-item-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="work-item-info">
+            <div>
+              <div class="work-item-num">03</div>
+              <h3 class="work-item-title">Sport<br>Videography</h3>
+              <p class="work-item-cat">Sport &nbsp;&middot;&nbsp; Action &nbsp;&middot;&nbsp; Video </p>
+            </div>
+            <div>
+              <p class="work-item-desc">
+                Ein dynamisches Sportvideo, das Geschwindigkeit, Präzision und Emotionen 
+                in den Mittelpunkt stellt. Durch schnelle Schnitte und ausdrucksstarke 
+                Aufnahmen wird die Energie des Rennens visuell erlebbar.
+
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 — Behind the Frame (BTS stills + campaign banner) -->
+      <article class="work-item">
+        <div class="work-item-inner">
+          <div class="work-item-media">
+            <img
+              src="assets/Image/Work/87D09427-E93D-450D-9960-6BB072649E5C_1_105_c.jpeg"
+              alt="Behind the scenes — professional video studio setup with Sony camera"
+              loading="lazy"
+            >
+            <div class="work-item-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="work-item-info">
+            <div>
+              <div class="work-item-num">04</div>
+              <h3 class="work-item-title">Behind<br>the Frame</h3>
+              <p class="work-item-cat">BTS &nbsp;&middot;&nbsp; Studio Production</p>
+            </div>
+            <div>
+              <p class="work-item-desc">
+                Ein Einblick in den Produktionsprozess – Studioaufbauten mit mehreren Lichtquellen, Arbeitsabläufe im Monitorbereich
+                und die ruhige Präzision, die eine professionelle Videoproduktion auszeichnet.
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MARQUEE #2 — between Work and Hobby
+       ============================================================ -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track marquee-track--rev">
+      <span class="marquee-item">Scotland <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Street Photography <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Travel <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Documentary <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Wildlife <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Personal Archive <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Urban Scenes <span class="marquee-sep">&middot;</span></span>
+      <!-- Duplicate -->
+      <span class="marquee-item">Scotland <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Street Photography <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Travel <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Documentary <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Wildlife <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Personal Archive <span class="marquee-sep">&middot;</span></span>
+      <span class="marquee-item">Urban Scenes <span class="marquee-sep">&middot;</span></span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       HOBBY — bento collage grid
+       ============================================================ -->
+  <section class="hobby" id="hobby" aria-label="Personal Work — Hobby Photography">
+
+    <div class="section-header">
+      <span class="section-num">002</span>
+      <h2 class="section-title">Hobby</h2>
+    </div>
+
+    <div class="hobby-grid">
+
+      <!-- 1 — large portrait, top-left -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Freetime/4BEBA655-A950-4A18-9039-13A374F7FCA5_1_105_c.jpeg" alt="Highland Cattle, Scotland" loading="lazy">
+        <div class="hobby-caption"><span>Highland Cattle &middot; Scotland</span></div>
+      </div>
+
+      <!-- 2 — medium portrait, top-centre-left -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Work/4A99DC4A-3351-4C50-B8A6-2AC4AD948C90_1_105_c.jpeg" alt="Red Phone Box, London" loading="lazy">
+        <div class="hobby-caption"><span>Campaigne Shoot &middot; Career Site</span></div>
+      </div>
+
+  
+
+      <!-- 4 — small portrait, mid-centre-left -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Work/CC46F8BA-EDDD-484B-B74A-5E84A81341C5_1_105_c.jpeg" alt="product, chips" loading="lazy">
+        <div class="hobby-caption"><span>Product &middot; Photography</span></div>
+      </div>
+
+      <!-- 5 — small portrait, mid-right -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Work/7DA7C8F0-C748-4B38-A66F-FBBF4F23F606_1_105_c.jpeg" alt="Street Scene, UK" loading="lazy">
+        <div class="hobby-caption"><span>Product &middot; Parfum </span></div>
+      </div>
+
+      <!-- 6 — medium portrait, mid-left -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Freetime/A42D1B56-BA98-4E53-924E-F6E7B1E0BD90_1_105_c.jpeg" alt="On the Boat" loading="lazy">
+        <div class="hobby-caption"><span>On the Boat</span></div>
+      </div>
+
+     
+
+      <!-- 8 — medium portrait, mid-right -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Freetime/2498FB58-491C-427F-BD3F-DB8E1DFAF190_1_105_c.jpeg" alt="Quiet Moment" loading="lazy">
+        <div class="hobby-caption"><span>Quiet Moment</span></div>
+      </div>
+
+      
+
+      <!-- 10 — medium, bottom-centre-left -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Freetime/B5E46DF0-D430-4028-B838-6112BD94EC60_1_105_c.jpeg" alt="Wanderlust" loading="lazy">
+        <div class="hobby-caption"><span>Wanderlust</span></div>
+      </div>
+
+     
+
+      <!-- 12 — small, bottom-right -->
+      <div class="hobby-photo">
+        <img src="assets/Image/Work/64BE093F-843C-4E55-A7A8-810C2AF9CA28_1_105_c.jpeg" alt="Frame Within Frame" loading="lazy">
+        <div class="hobby-caption"><span>Frame Within Frame</span></div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section class="contact" id="contact" aria-label="Contact">
+    <p class="contact-eyebrow">003 &nbsp;&mdash;&nbsp; Get in touch</p>
+
+    <h2 class="contact-heading">
+      Let&rsquo;s create
+      <em>something</em>
+      remarkable.
+    </h2>
+
+    <div class="contact-bottom">
+      <a href="mailto:sironico@icloud.com" class="contact-email">sironico@icloud.com</a>
+      <nav class="contact-socials" aria-label="Social links">
+        <a href="#" class="contact-social">Instagram</a>
+        <a href="#" class="contact-social">LinkedIn</a>
+        <a href="#" class="contact-social">Vimeo</a>
+      </nav>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <span class="footer-logo">SIRO</span>
+    <span class="footer-copy">&copy;&nbsp;2025 All rights reserved</span>
+    <span class="footer-location">Visual Creator &nbsp;&middot;&nbsp; Zürich</span>
+  </footer>
+
+</body>
+</html>
